@@ -1,9 +1,24 @@
 .profile{
+    width: 100vw;
+    height: 100vh;
     margin-top: 60px;
     display: flex;
     justify-content: space-between;
 
     >div{
         width: 50%;
+        display: flex;
+        justify-content: center;
+        margin-top: 8%;
+
+        >img{
+            border-radius: 100%;
+            width: 400px;
+            height: 400px;
+        }
+
+        >:last-child{
+            margin-left: 20px;
+        }
     }
 }

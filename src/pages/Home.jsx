@@ -59,7 +59,6 @@ const Home = () => {
         <Loader />
       ) : (
         <>
-          <Header />
           <div className="home">
             <Line options={options} data={data} />
           </div>
