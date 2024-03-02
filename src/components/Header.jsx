@@ -6,6 +6,7 @@ import { RiHome2Line } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineForwardToInbox } from "react-icons/md";
 import { FaCode } from "react-icons/fa";
+import logo from '../styles/logo.png'
 
 const Header = () => {
   const { user } = UserState();
@@ -30,7 +31,9 @@ const Header = () => {
   return (
     <div className="header">
       <div>
-        <div>logo</div>
+        <div>
+          <img src={logo} alt="logo" />
+        </div>
         <div>
           <ul>
             <li className={route === "/" ? "active" : ""} onClick={homeHandler}>
