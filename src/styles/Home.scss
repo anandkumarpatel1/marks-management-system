@@ -47,6 +47,16 @@
   }
   .mainHome {
     width: 100% !important;
+    
+    >form{
+
+      >input{
+        width: 90% !important;
+      }
+      >button{
+        width: 10% !important;
+      }
+    }
   }
 }
 @media (max-width: 1200px) {
