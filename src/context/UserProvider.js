@@ -8,6 +8,8 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(false);
   const [chn, setChn] = useState(false);
+  const [search, setSearch] = useState();
+  const [semStudent, setSemStudent] = useState()
 
   const navigate = useNavigate();
 
@@ -44,7 +46,18 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ user, setUser, chn, setChn, loading, setLoading }}
+      value={{
+        user,
+        setUser,
+        chn,
+        setChn,
+        loading,
+        setLoading,
+        search,
+        setSearch,
+        semStudent,
+        setSemStudent
+      }}
     >
       {children}
     </UserContext.Provider>

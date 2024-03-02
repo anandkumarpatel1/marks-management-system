@@ -1,3 +1,174 @@
-.home{
-    margin-top: 60px;
+.home {
+  width: 100vw;
+  margin-top: 60px;
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+
+  > canvas {
+    width: 30% !important;
+    height: 30% !important;
+  }
+}
+
+.rightHome {
+  width: 450px;
+  box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+  height: 100vh;
+  overflow-y: scroll;
+  border-radius: 15px;
+}
+
+.sideStudentCard {
+  width: 98%;
+  margin: 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px;
+  border: 1px solid wheat;
+  cursor: pointer;
+  border-radius: 15px;
+  > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .home {
+    padding: 5px;
+  }
+  .rightHome {
+    display: none;
+  }
+  .sideStudentCard {
+    display: none;
+  }
+  .mainHome {
+    width: 100% !important;
+  }
+}
+@media (max-width: 1200px) {
+  .home {
+    padding: 5px;
+  }
+  .rightHome {
+    width: 700px;
+  }
+  .mainHome {
+    width: 100% !important;
+  }
+}
+
+.mainHome {
+  width: calc(100% - 500px);
+  box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+  height: 100vh;
+  overflow-y: scroll;
+  border-radius: 15px;
+  padding: 7px;
+  position: relative;
+
+  > form {
+    margin-top: 10px;
+    border: 1px solid gray;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    > input {
+      border-radius: 15px 0 0 15px;
+      width: 95%;
+      height: 100%;
+      padding: 8px;
+    }
+    > button {
+      border-radius:0 15px 15px 0;
+      width: 5%;
+      transition: all 0.4s;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background: rgb(131, 130, 130);
+        color: white;
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  .searchedStudent{
+    background: gray;
+    padding: 8px;
+    border-radius: 15px;
+    margin-top: 5px;
+    height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    width: 98.5%;
+    display: none;
+
+    >:first-child{
+      display: flex;
+      justify-content: flex-end;
+
+      >svg{
+        cursor: pointer;
+      }
+    }
+  }
+
+  >.active{
+    display: block;
+  }
+
+  > .input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    > div {
+      border: 1px solid gray;
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      border-radius: 15px;
+      margin-top: 30px;
+      height: fit-content;
+
+      > p {
+        text-align: center;
+      }
+
+      > input {
+        margin-top: 10px;
+        padding: 8px;
+        outline: none;
+        border: 1px solid gray;
+        border-radius: 10px;
+      }
+
+      > button {
+        border-radius: 10px;
+        margin-top: 10px;
+        padding: 7px;
+        transition: all 0.4s;
+        font-weight: 600;
+
+        &:hover {
+          background: rgb(131, 130, 130);
+          color: white;
+          letter-spacing: 2px;
+        }
+      }
+    }
+  }
 }

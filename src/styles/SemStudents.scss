@@ -1,0 +1,88 @@
+.semStudents {
+  margin-top: 80px;
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+
+  > :first-child {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    > input {
+      border-radius: 15px;
+      width: 20%;
+      height: 100%;
+      padding: 8px;
+      border: 1px solid gray;
+    }
+  }
+
+  > :last-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+.semStu {
+  border: 1px solid black;
+  width: 43%;
+  margin-top: 20px;
+  padding: 10px 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+
+  > :last-child {
+    display: flex;
+    flex-direction: column;
+    > input {
+      outline: none;
+      border: 1px solid gray;
+      border-radius: 5px;
+      padding: 8px;
+    }
+
+    > button {
+      border-radius: 10px;
+      margin-top: 10px;
+      width: 100px;
+      padding: 7px;
+      transition: all 0.4s;
+      font-weight: 600;
+
+      &:hover {
+        background: rgb(131, 130, 130);
+        color: white;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .semStu{
+    width: 100%;
+  }
+
+  .semStudents {
+    > :first-child {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      border-bottom: 1px solid black;
+      padding-bottom: 20px;
+      > input {
+        width: 80%;
+        margin-top: 10px;
+      }
+    }
+  
+    > :last-child {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+}

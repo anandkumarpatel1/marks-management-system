@@ -42,8 +42,12 @@ const Header = () => {
             >
               <BsPerson size={30} />
             </li>
-            <li><MdOutlineForwardToInbox size={30} /></li>
-            <li><FaCode size={30} /></li>
+            <li>
+              <MdOutlineForwardToInbox size={30} />
+            </li>
+            <li>
+              <FaCode size={30} />
+            </li>
           </ul>
         </div>
         <div>
@@ -51,7 +55,7 @@ const Header = () => {
             <img src={user?.pic} alt={user?.name} />
             <div className="headerOption">
               <ul>
-                <li>Profile</li>
+                <li onClick={profileHandler}>Profile</li>
                 <li onClick={logoutHandler}>Logout</li>
                 <li>Setting</li>
               </ul>
