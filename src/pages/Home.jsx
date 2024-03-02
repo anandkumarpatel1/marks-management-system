@@ -5,6 +5,7 @@ import { UserState } from "../context/UserProvider";
 import "../styles/Home.scss";
 import RightHomeBar from "../components/RightHomeBar";
 import MainHome from "../components/MainHome";
+import Header from "../components/Header";
 
 const Home = () => {
   const { loading, setLoading } = UserState();
@@ -16,6 +17,7 @@ const Home = () => {
         <Loader />
       ) : (
         <>
+        <Header />
           <div className="home">
             <MainHome />
             <RightHomeBar />

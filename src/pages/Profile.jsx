@@ -7,6 +7,7 @@ const Profile = () => {
   const { user } = UserState();
   return (
     <>
+    <Header/>
       <div className="profile">
         <div>
           <img src={user?.pic} alt={user?.name} />
