@@ -5,11 +5,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider, UserState } from "./context/UserProvider";
 import SemStudents from "./pages/SemStudents";
 import StudentProfile from "./pages/StudentProfile";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <BrowserRouter>
       <UserProvider>
+        <ToastContainer />
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/login" Component={Login} />

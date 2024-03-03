@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UserContext = createContext();
 
@@ -37,6 +39,7 @@ export const UserProvider = ({ children }) => {
 
       setUser(data?.teacher);
       navigate("/");
+      toast(data?.message)
       setLoading(false);
     } else {
       navigate("/login");

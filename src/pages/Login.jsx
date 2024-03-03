@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserState } from "../context/UserProvider";
 import Loader from "../components/Loader";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     try {
       if (!email || !password) {
-        alert("Please all details");
+        toast("Please all details");
         return;
       }
 
@@ -38,13 +40,15 @@ const Login = () => {
         console.log(data);
         document.cookie = `token=${data?.token}`;
         setUser(data?.teacher);
+      alert(data?.message);
+
         setChn(!chn);
       }
 
       setLoading(false);
       return;
     } catch (error) {
-      alert(error);
+      alert(error?.response?.data?.message);
       setLoading(false);
     }
   };
@@ -54,27 +58,30 @@ const Login = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="login">
-          <form onSubmit={(e) => loginHandler(e)}>
-            <p>Login</p>
-            <input
-              type="text"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setpassword(e.target.value)}
-            />
-            <button>submit</button>
-            <p>
-              create account? <span>signup</span>
-            </p>
-          </form>
-        </div>
+        <>
+          <ToastContainer autoClose={5000}/>
+          <div className="login">
+            <form onSubmit={(e) => loginHandler(e)}>
+              <p>Login</p>
+              <input
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
+              />
+              <button>submit</button>
+              <p>
+                create account? <span>signup</span>
+              </p>
+            </form>
+          </div>
+        </>
       )}
     </>
   );
