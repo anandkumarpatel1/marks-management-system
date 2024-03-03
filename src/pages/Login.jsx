@@ -40,7 +40,7 @@ const Login = () => {
         console.log(data);
         document.cookie = `token=${data?.token}`;
         setUser(data?.teacher);
-        alert(data?.message);
+        // alert(data?.message);
         setChn(!chn);
       }
 
