@@ -1,15 +1,4 @@
 import React, { useState } from "react";
-import {
-  CategoryScale,
-  Chart as ChartJS,
-  Legend,
-  LineElement,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
 import "../styles/Home.scss";
 import { CiSearch } from "react-icons/ci";
 import axios from "axios";
@@ -17,31 +6,9 @@ import { UserState } from "../context/UserProvider";
 import { useNavigate } from "react-router-dom";
 import SideStudentCard from "./SideStudentCard";
 import { RxCross2 } from "react-icons/rx";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Chart.js Line Chart",
-    },
-  },
-};
-
-const labels = ["students"];
 
 const MainHome = () => {
   const [newStudentName, setNewStudentName] = useState("");
@@ -67,7 +34,7 @@ const MainHome = () => {
         !newStudentPass ||
         !setNewStudentSem
       ) {
-        alert("Please provide all detalis");
+        toast("Please provide all detalis");
         return;
       }
       if (document.cookie) {
@@ -93,14 +60,14 @@ const MainHome = () => {
           config
         );
         setLoading(false);
-        alert(data?.message);
+        toast(data?.message);
       } else {
         navigate("/login");
         setLoading(false);
       }
     } catch (error) {
       setLoading(false);
-      alert(error.response.data.message);
+      toast(error.response.data.message);
     }
   };
 
@@ -109,7 +76,7 @@ const MainHome = () => {
       e.preventDefault();
       setSearchLoad(true);
       if (!searchInput) {
-        alert("Enter Name or something");
+        toast("Enter Name or something");
         return;
       }
       if (document.cookie) {
@@ -138,7 +105,7 @@ const MainHome = () => {
       }
     } catch (error) {
       setSearchLoad(false);
-      alert(error);
+      toast(error);
     }
   };
   function crosshandler() {

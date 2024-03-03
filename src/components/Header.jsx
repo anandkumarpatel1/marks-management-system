@@ -7,7 +7,8 @@ import { BsPerson } from "react-icons/bs";
 import { MdOutlineForwardToInbox } from "react-icons/md";
 import { FaCode } from "react-icons/fa";
 import logo from '../styles/logo.png'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
   const { user } = UserState();
 
@@ -17,6 +18,8 @@ const Header = () => {
 
   const logoutHandler = () => {
     document.cookie = `token=${null};max-age= 0`;
+    toast('Logout Sucess full')
+    alert('Logout Success full')
     navigate("/login");
   };
 
