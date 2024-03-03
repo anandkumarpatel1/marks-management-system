@@ -4,8 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserState } from "../context/UserProvider";
 import Loader from "../components/Loader";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -40,8 +40,7 @@ const Login = () => {
         console.log(data);
         document.cookie = `token=${data?.token}`;
         setUser(data?.teacher);
-      alert(data?.message);
-
+        alert(data?.message);
         setChn(!chn);
       }
 
@@ -59,7 +58,7 @@ const Login = () => {
         <Loader />
       ) : (
         <>
-          <ToastContainer autoClose={5000}/>
+          <ToastContainer autoClose={5000} />
           <div className="login">
             <form onSubmit={(e) => loginHandler(e)}>
               <p>Login</p>
