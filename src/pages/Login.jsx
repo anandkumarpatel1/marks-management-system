@@ -10,9 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
-
+  const navigate = useNavigate()
   const { chn, setChn, setUser, loading, setLoading } = UserState();
-  const navigate = useNavigate();
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -37,10 +36,8 @@ const Login = () => {
       );
 
       if (data) {
-        console.log(data);
         document.cookie = `token=${data?.token}`;
         setUser(data?.teacher);
-        // alert(data?.message);
         setChn(!chn);
       }
 
@@ -76,7 +73,7 @@ const Login = () => {
               />
               <button>submit</button>
               <p>
-                create account? <span>signup</span>
+                create account? <span onClick={() => navigate('/signup')}>signup</span>
               </p>
             </form>
           </div>

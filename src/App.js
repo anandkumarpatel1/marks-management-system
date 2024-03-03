@@ -7,6 +7,7 @@ import SemStudents from "./pages/SemStudents";
 import StudentProfile from "./pages/StudentProfile";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SignUp from "./pages/SignUp";
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/login" Component={Login} />
+          <Route path="/signup" Component={SignUp} />
           <Route path="/profile" Component={Profile} />
           <Route path="/students/semester" Component={SemStudents} />
           <Route path="/student/:id" Component={StudentProfile} />
