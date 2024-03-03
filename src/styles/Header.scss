@@ -24,12 +24,12 @@
     >:first-child{
       height: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
+      width: 20%;
 
       >img{
       height: 90%;
-
       }
     }
 
@@ -70,7 +70,10 @@
       border-radius: 150px;
       padding: 3px;
       position: relative;
-
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 20%;
       .image {
         display: flex;
         height: 100%;
@@ -82,7 +85,7 @@
         > .headerOption {
           display: none;
           position: absolute;
-          left: -20px;
+          right: 0;
           top: 58px;
           background: white;
           border-radius: 15px;

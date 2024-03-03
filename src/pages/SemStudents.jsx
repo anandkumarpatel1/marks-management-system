@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/SemStudents.scss";
 import { UserState } from "../context/UserProvider";
-import axios from "axios";
 import AddMarksCard from "../components/AddMarksCard";
 import Header from "../components/Header";
 

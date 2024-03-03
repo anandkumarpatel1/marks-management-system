@@ -25,7 +25,7 @@ const AddMarksCard = ({item, testNo, sub}) => {
     
           setMarks('')
         } catch (error) {
-            console.log(error)
+           alert(error.response.data.message.message)
         }
       };
     

@@ -33,6 +33,7 @@ const Header = () => {
       <div>
         <div>
           <img src={logo} alt="logo" />
+          <h2>Edu Metrics</h2>
         </div>
         <div>
           <ul>
@@ -59,6 +60,7 @@ const Header = () => {
             <div className="headerOption">
               <ul>
                 <li onClick={profileHandler}>Profile</li>
+                <li onClick={homeHandler}>Home</li>
                 <li onClick={logoutHandler}>Logout</li>
                 <li>Setting</li>
               </ul>

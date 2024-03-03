@@ -182,7 +182,7 @@ const MainHome = () => {
           <RxCross2 size={45} onClick={crosshandler} />
         </div>
         {searchLoad && <div>Please wait...</div>}
-        {search && search.map(() => <SideStudentCard />)}
+        {search && search.map((item, index) => <SideStudentCard key={index}  item={item} />)}
       </div>
       <div className="input">
         {/* first div */}

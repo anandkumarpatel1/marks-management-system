@@ -10,6 +10,7 @@ export const UserProvider = ({ children }) => {
   const [chn, setChn] = useState(false);
   const [search, setSearch] = useState();
   const [semStudent, setSemStudent] = useState()
+  const [stuProfile, setStuProfile] = useState()
 
   const navigate = useNavigate();
 
@@ -34,7 +35,6 @@ export const UserProvider = ({ children }) => {
         config
       );
 
-      console.log(data);
       setUser(data?.teacher);
       navigate("/");
       setLoading(false);
@@ -56,7 +56,9 @@ export const UserProvider = ({ children }) => {
         search,
         setSearch,
         semStudent,
-        setSemStudent
+        setSemStudent,
+        stuProfile,
+        setStuProfile
       }}
     >
       {children}
