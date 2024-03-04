@@ -16,7 +16,7 @@ const StudentProfile = () => {
           <Header />
 
           <div className="studentProfile">
-            <div>
+            <div className="data">
               <div>
                 <img src={stuProfile?.pic} alt={stuProfile?.name} />
               </div>
