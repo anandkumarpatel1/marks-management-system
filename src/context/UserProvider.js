@@ -14,6 +14,7 @@ export const UserProvider = ({ children }) => {
   const [semStudent, setSemStudent] = useState();
   const [stuProfile, setStuProfile] = useState();
   const [allStudents, setAllStudents] = useState();
+  const [filterData, setFilterData] = useState();
 
   const navigate = useNavigate();
 
@@ -65,6 +66,8 @@ export const UserProvider = ({ children }) => {
         setStuProfile,
         allStudents,
         setAllStudents,
+        filterData,
+        setFilterData,
       }}
     >
       {children}

@@ -21,7 +21,7 @@ const MainHome = () => {
   const [searchList, setSearchList] = useState(false);
   const [searchLoad, setSearchLoad] = useState(false);
   const navigate = useNavigate();
-  const { search, setSearch, setLoading, setSemStudent, setAllStudents } =
+  const { search, setSearch, setLoading, setSemStudent, setAllStudents, setFilterData } =
     UserState();
 
   const studentCreateHandler = async () => {
@@ -92,6 +92,7 @@ const MainHome = () => {
       if(data){
         console.log(data)
         setAllStudents(data?.student)
+        setFilterData(data?.student)
         setLoading(false)
       }
     } catch (error) {
