@@ -8,6 +8,7 @@ import StudentProfile from "./pages/StudentProfile";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SignUp from "./pages/SignUp";
+import AllStudents from "./pages/AllStudents";
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/profile" Component={Profile} />
           <Route path="/students/semester" Component={SemStudents} />
           <Route path="/student/:id" Component={StudentProfile} />
+          <Route path="/allstudents" Component={AllStudents} />
         </Routes>
       </UserProvider>
     </BrowserRouter>

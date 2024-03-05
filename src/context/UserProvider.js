@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserContext = createContext();
 
@@ -11,8 +11,9 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [chn, setChn] = useState(false);
   const [search, setSearch] = useState();
-  const [semStudent, setSemStudent] = useState()
-  const [stuProfile, setStuProfile] = useState()
+  const [semStudent, setSemStudent] = useState();
+  const [stuProfile, setStuProfile] = useState();
+  const [allStudents, setAllStudents] = useState();
 
   const navigate = useNavigate();
 
@@ -39,7 +40,7 @@ export const UserProvider = ({ children }) => {
 
       setUser(data?.teacher);
       navigate("/");
-      toast(data?.message)
+      toast(data?.message);
       setLoading(false);
     } else {
       navigate("/login");
@@ -61,7 +62,9 @@ export const UserProvider = ({ children }) => {
         semStudent,
         setSemStudent,
         stuProfile,
-        setStuProfile
+        setStuProfile,
+        allStudents,
+        setAllStudents,
       }}
     >
       {children}

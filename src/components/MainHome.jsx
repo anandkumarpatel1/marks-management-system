@@ -21,7 +21,7 @@ const MainHome = () => {
   const [searchList, setSearchList] = useState(false);
   const [searchLoad, setSearchLoad] = useState(false);
   const navigate = useNavigate();
-  const { search, setSearch, setLoading, semStudent, setSemStudent } =
+  const { search, setSearch, setLoading, setSemStudent, setAllStudents } =
     UserState();
 
   const studentCreateHandler = async () => {
@@ -71,6 +71,35 @@ const MainHome = () => {
     }
   };
 
+  const allStudentHandler = async () =>{
+    try {
+      setLoading(true)
+      navigate('/allstudents')
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+        },
+        withCredentials: true,
+        sameSite: "None",
+      };
+  
+      const { data } = await axios.get(
+        `https://marks-management-system-backend.vercel.app/api/v1/teacher/findall`,
+        config
+      );
+
+      if(data){
+        console.log(data)
+        setAllStudents(data?.student)
+        setLoading(false)
+      }
+    } catch (error) {
+      toast(error)
+      setLoading(false)
+    }
+
+  }
   const searchHandler = async (e) => {
     try {
       e.preventDefault();
@@ -108,27 +137,33 @@ const MainHome = () => {
       toast(error);
     }
   };
+
   function crosshandler() {
     setSearchList(false);
   }
 
   const semhandler = async (sem) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${document.cookie.split("=")[1]}`,
-      },
-      withCredentials: true,
-      sameSite: "None",
-    };
-
-    const { data } = await axios.get(
-      `https://marks-management-system-backend.vercel.app/api/v1/teacher/search/${sem}`,
-      config
-    );
-
-    setSemStudent(data?.student);
-    navigate("/students/semester");
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+        },
+        withCredentials: true,
+        sameSite: "None",
+      };
+  
+      const { data } = await axios.get(
+        `https://marks-management-system-backend.vercel.app/api/v1/teacher/search/${sem}`,
+        config
+      );
+  
+      setSemStudent(data?.student);
+      navigate("/students/semester");
+    } catch (error) {
+      toast(error)
+    }
+    
   };
   return (
     <div className="mainHome">
@@ -195,7 +230,7 @@ const MainHome = () => {
         </div>
         {/* second div */}
         <div>
-          <button>Fetch All Students</button>
+          <button onClick={allStudentHandler}>Fetch All Students</button>
           <button>Fetch All Enroll Students</button>
         </div>
         {/* third div */}
